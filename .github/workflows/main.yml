@@ -40,3 +40,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      env:
+        USER: ${{secrets.USER}}
+          TOKEN: ${{secrets.TOKEN}}
+
+      -name: upload dev.apk
+      uses: actions/upload-artifact@v1
+        with:
+            name: cicd_dev.apk
+            path: app/build/outputs/apk/dev/debug/cicd-dev-debug.apk
