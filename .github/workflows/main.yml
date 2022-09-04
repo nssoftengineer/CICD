@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: clean build
+        run: ./gradlew clean build
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
