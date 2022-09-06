@@ -23,19 +23,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v1
-      - name: set up JDK
-        uses: actions/setup-java@v1
-        with:
-          - java-version: 11.0.3
 
       - name: Grant Permission to Execute
-        run: chmod +x gradlew
+      - run: chmod +x gradlew
 
       - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
+      - run: bash ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK to Github Artifacts
-        uses: actions/upload-artifact@v1
-        with:
+      - uses: actions/upload-artifact@v1
+      - with:
           - name: app
           - path: app/build/outputs/apk/debug/app-debug.apk
