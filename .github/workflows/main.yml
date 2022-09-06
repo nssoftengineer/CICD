@@ -30,6 +30,9 @@ jobs:
       - name: clean build
         run: ./gradlew clean build
 
+      - name: Build Android app
+        ./gradlew bundleDebug
+
      - name : upload apk
        uses: actions/upload-artifact@v1
        with:
